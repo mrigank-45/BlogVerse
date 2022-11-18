@@ -1,0 +1,44 @@
+<%- include("partials/header") -%>
+
+    <main>
+        <!-- ---------------------- Site Content -------------------------->
+        <hr style="margin-top:-2px;">
+
+    <section class="container">
+        <h1 class="hh">Your Blogs</h1>
+        <div class="site-content">
+            <div class="posts mm">
+                <% posts.forEach(function(post) { %>
+                <div class="post-content" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="post-image">
+                        <div>
+                            <img src="data:image/<%=post.img.contentType%>;base64,
+                            <%=post.img.data.toString('base64')%>" class="img ii" alt="blog1">
+                        </div>
+                        <div class="post-info flex-row bb">
+                            <span><i class="fas fa-user text-gray"></i>&nbsp;&nbsp;<%= post.author %></span>
+                            <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;<%= post.date.toDateString() %></span>
+                            <span><%= post.min %> min Read </span>
+                        </div>
+                    </div>
+                    <div class="post-title">
+                        <a href="#"><%= post.title %></a>
+                        <p> <%= _.truncate(post.content, {"length": 300}) %>
+                        </p>
+                        <a href="/posts/<%= post._id %>" ><button class="btn post-btn">Read More &nbsp; <i class="fas fa-arrow-right"></i></button></a>
+                        <a href="/e_blog/<%= post._id %>" style="margin-left:423px;" ><button class="btn post-btn">Edit Blog &nbsp; <i class='fa fa-edit'></i></button></a>
+                        <a href="/delete/<%= post._id %>" style="margin-left:418px;" ><button class="btn post-btn">Delete Blog &nbsp; <i class="fa fa-trash" style="color:red;"></i> </button></a>
+                        
+                    </div>
+                </div>
+                <hr>
+                <% }); %>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- -----------x---------- Site Content -------------x------------>
+</main>
+   
+    <%- include("partials/footer") -%>\

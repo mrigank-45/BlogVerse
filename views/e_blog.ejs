@@ -1,0 +1,29 @@
+<%- include("partials/header") -%>
+    <hr style="margin-top:-2px; margin-bottom:-1px;">
+
+    <form action="/w_blog" method="post">
+        <div id="e_output">
+            <img src="data:image/<%=img.contentType%>;base64,
+                            <%=img.data.toString('base64')%>" class="img ii" width="100%" alt="blog1">
+        </div>
+
+        <div class="blog">
+            <input type="text" name="postTitle" class="title" value=" <%= title %> ">
+            <hr>
+            <input type="text" name="postAuthor" class="author" value=" <%= author %> ">
+            <hr>
+            <input type="number" name="postMin" class="min" value=<%=min %>>
+            <hr>
+            <input type="date" name="postDate" class="date">
+            <hr>
+            <textarea type="text" name="postContent" class="article"> <%= content %> </textarea>
+        </div>
+
+        <div class="blog-options">
+            <button class="btn dark publish-btn">Publish Edited Blog</button>
+        </div>
+    </form>
+
+    </body>
+
+    </html>

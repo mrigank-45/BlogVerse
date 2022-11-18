@@ -1,0 +1,37 @@
+<%- include("partials/header") -%>
+    <hr style="margin-top:-2px; margin-bottom:-1px;">
+    <form action="/w_blog" method="post" enctype="multipart/form-data">
+        <div class="banner">
+            <input type="file" name="image" id="banner-upload" onchange="loadFile(event)" hidden>
+            <label for="banner-upload" style="cursor: pointer;" class="banner-upload-btn"><img
+                    src="https://raw.githubusercontent.com/kunaal438/blogging-site/master/public/img/upload.png"
+                    alt="upload banner"></label>
+        </div>
+        <p><img id="output" width="200" /></p>
+        </div>
+
+        <div class="blog">
+            <input type="text" name="postTitle" class="title" placeholder="Blog title...">
+            <hr>
+            <input type="text" name="postAuthor" class="author" placeholder="What is your name?">
+            <hr>
+            <input type="number" name="postMin" class="min" placeholder="How Many Minute Read?">
+            <hr>
+            <input type="date" name="postDate" class="date">
+            <hr>
+            <textarea type="text" name="postContent" class="article" placeholder="Start writing here..."></textarea>
+        </div>
+
+        <div class="blog-options">
+            <button class="btn dark publish-btn">publish</button>
+        </div>
+    </form>
+    <script> var loadFile = function (event) {
+            var image = document.getElementById('output');
+            image.src = URL.createObjectURL(event.target.files[0]);
+        };
+    </script>
+
+    </body>
+
+    </html>

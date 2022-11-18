@@ -1,0 +1,55 @@
+<%- include("partials/header") -%>
+    <hr>
+    <section class="blog-post section-header-offset">
+        <div class="blog-post-container container" data-aos="zoom-in" data-aos-delay="200">
+            <div class="blog-post-data">
+                <h3 class="title blog-post-title">
+                    <%= title %>
+                </h3>
+                <div class="article-data">
+                    <span>By <%= author %> | </span>
+                    <span>
+                        <%= date.toDateString() %> |
+                    </span>
+                    <span>
+                        <%= min %> Min Read
+                    </span>
+                </div>
+                <img src="data:image/<%=img.contentType%>;base64,
+                            <%=img.data.toString('base64')%>" class="img" alt="blog1">
+            </div>
+
+            <div class="container">
+                <%= content %>
+            </div>
+            <!-- Like -->
+            <div class="like">
+                <div class="wrapper">
+                    <button class="bll bll-like">
+                        <span class="bll-icon bll--icon-default">
+                            <span class="fa fa-heart"></span>
+                        </span>
+                        <span class="bll-icon bll--icon-liked">
+                            <span class="fa fa-heart"></span>
+                        </span>
+                        <span class="bll-content  bll-content--liked">
+                            Liked
+                        </span>
+                        <span class="bll-content bll-content--default">
+                            Like
+                        </span>
+                    </button>
+
+                </div>
+            </div>
+
+            <!-- Comment box -->
+            <div class="comment">
+                <h3>Comments</h3>
+                <ul id="unordered"></ul>
+                <input type="text" id="comment-box" placeholder="Enter comment">
+                <button id="post">Add Comment</button>
+            </div>
+        </div>
+    </section>
+    <%- include("partials/footer") -%>
